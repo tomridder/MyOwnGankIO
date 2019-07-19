@@ -45,4 +45,5 @@ dependencies {
     implementation 'org.litepal.android:java:3.0.0'
     implementation 'org.greenrobot:eventbus:3.0.0'
     compile 'com.jude:easyrecyclerview:3.5.7'
+    compile 'com.github.chrisbanes:PhotoView:1.2.6'
 }

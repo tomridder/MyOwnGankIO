@@ -1,5 +1,6 @@
 package com.bignerdranch.myowngank3.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import com.bignerdranch.myowngank3.adapter.GanHuoAdapter;
 import com.bignerdranch.myowngank3.bean.GanHuo;
 import com.bignerdranch.myowngank3.retrofit.GankRetrofit;
 import com.bignerdranch.myowngank3.retrofit.GankService;
+import com.bignerdranch.myowngank3.ui.activity.GanHuoActivity;
 import com.jude.easyrecyclerview.EasyRecyclerView;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -74,7 +76,10 @@ public class TypeFragment extends Fragment implements RecyclerArrayAdapter.OnLoa
         ganHuoAdapter.setOnItemClickListener(new RecyclerArrayAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-
+                Intent intent=new Intent(getContext(), GanHuoActivity.class);
+                intent.putExtra("desc",ganHuoAdapter.getItem(position).getDesc());
+                intent.putExtra("url",ganHuoAdapter.getItem(position).getUrl());
+                startActivity(intent);
             }
         });
         recyclerView.setRefreshListener(this);
